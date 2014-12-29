@@ -7,10 +7,12 @@
 //
 
 #import "PhotoCollectionViewController.h"
+#import "PhotoCollectionHeaderView.h"
 
 @interface PhotoCollectionViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 {
     NSArray *imageArray;
+   
 }
 
 @end
@@ -29,8 +31,14 @@
     // Register cell classes
     //[self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
-    imageArray = [NSArray arrayWithObjects:@"img1.png", @"img2.png", @"img3.png", @"img4.png", @"img5.png", nil];
+     NSArray*oneImageArray = [NSArray arrayWithObjects:@"img1.png", @"img2.png", @"img3.png", @"img4.png", @"img5.png", nil];
+    NSArray *twoImgaeArray = [NSArray arrayWithObjects:@"pic1.jpg", @"pic2.jpg",@"pic3.jpg", nil];
     // Do any additional setup after loading the view.
+    imageArray = [NSArray arrayWithObjects:oneImageArray,  twoImgaeArray, nil];
+    
+    //增加區塊間的空間(UIEdgeInsetsMake(top, left, buttom, right))<區塊邊距>
+    UICollectionViewFlowLayout *collectionViewLayout =  (UICollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
+    collectionViewLayout.sectionInset = UIEdgeInsetsMake(20, 0, 20, 0);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,16 +60,17 @@
 
 
 //require
-//回傳圖片數量
+//回傳每一區塊圖片數量
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 #warning Incomplete method implementation -- Return the number of items in the section
-    //return 0;
-    return [imageArray count];
+    
+    return [[imageArray objectAtIndex:section] count];
 }
 
 //require
 //提供資料給集合視圖的cell
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
     //定義一個cell識別碼
     static NSString *identifier = @"Cell";
     //要求集合視圖使用那個識別碼來排列一個可重複使用的cell
@@ -70,9 +79,9 @@
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     //利用標籤值來取得圖像視圖，並將圖片指定給它
     UIImageView *photoImageView = (UIImageView *)[cell viewWithTag:100];
-    
-    photoImageView.backgroundColor = [UIColor redColor];
-    photoImageView.image = [UIImage imageNamed:[imageArray objectAtIndex:indexPath.row]];
+    //先利用區塊的編號(indexPath.section)來取得陣列，
+    //再從那區塊陣列中取得某個項目
+    photoImageView.image = [UIImage imageNamed:[imageArray[indexPath.section] objectAtIndex:indexPath.row]];
     cell.backgroundView  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"photo-frame.png"]];
     
     // Configure the cell
@@ -80,6 +89,33 @@
     return cell;
 }
 
+//optional
+//回傳在集合視圖中區塊的數量
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return [imageArray count];
+}
+
+//optional
+//標頭與註腳
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+    UICollectionReusableView *reusableview = nil;
+    
+    if (kind == UICollectionElementKindSectionHeader) {
+        PhotoCollectionHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+        NSString *title = [[NSString alloc] initWithFormat:@"Photo Group %li", indexPath.section +1];
+        headerView.titleLabel.text = title;
+        
+        reusableview = headerView;
+    }
+    
+    if (kind == UICollectionElementKindSectionFooter) {
+        UICollectionReusableView *footerview = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterView" forIndexPath:indexPath];
+        
+        reusableview = footerview;
+    }
+    
+    return reusableview;
+}
 #pragma mark <UICollectionViewDelegate>
 
 /*
