@@ -38,6 +38,8 @@
 		76F4E3421A5153D30044D8C8 /* img9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 76F4E33E1A5153D30044D8C8 /* img9.jpg */; };
 		76F4E3451A5153DE0044D8C8 /* img10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 76F4E3431A5153DE0044D8C8 /* img10.jpg */; };
 		76F4E3461A5153DE0044D8C8 /* img11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 76F4E3441A5153DE0044D8C8 /* img11.jpg */; };
+		76F4E3491A52831C0044D8C8 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F4E3481A52831C0044D8C8 /* PhotoViewController.m */; };
+		76F4E34B1A52976F0044D8C8 /* photo-frame-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 76F4E34A1A52976F0044D8C8 /* photo-frame-selected.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,9 @@
 		76F4E33E1A5153D30044D8C8 /* img9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img9.jpg; sourceTree = "<group>"; };
 		76F4E3431A5153DE0044D8C8 /* img10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img10.jpg; sourceTree = "<group>"; };
 		76F4E3441A5153DE0044D8C8 /* img11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img11.jpg; sourceTree = "<group>"; };
+		76F4E3471A52831C0044D8C8 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		76F4E3481A52831C0044D8C8 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
+		76F4E34A1A52976F0044D8C8 /* photo-frame-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-frame-selected.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +149,7 @@
 		768305DB1A4D02DE002C88B5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				76F4E34A1A52976F0044D8C8 /* photo-frame-selected.png */,
 				76F4E31E1A50F0620044D8C8 /* img */,
 				768306051A4D0951002C88B5 /* pic */,
 				768305DF1A4D02DE002C88B5 /* AppDelegate.h */,
@@ -223,6 +229,8 @@
 			children = (
 				76F4E32D1A50F9E90044D8C8 /* PhotoCollectionHeaderView.h */,
 				76F4E32E1A50F9E90044D8C8 /* PhotoCollectionHeaderView.m */,
+				76F4E3471A52831C0044D8C8 /* PhotoViewController.h */,
+				76F4E3481A52831C0044D8C8 /* PhotoViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -314,6 +322,7 @@
 				76F4E3261A50F0620044D8C8 /* img3.png in Resources */,
 				76F4E3241A50F0620044D8C8 /* img1.png in Resources */,
 				76F4E33F1A5153D30044D8C8 /* img6.jpg in Resources */,
+				76F4E34B1A52976F0044D8C8 /* photo-frame-selected.png in Resources */,
 				76F4E3251A50F0620044D8C8 /* img2.png in Resources */,
 				76F4E3281A50F0620044D8C8 /* img5.png in Resources */,
 				76F4E33A1A5153C70044D8C8 /* header3.jpg in Resources */,
@@ -352,6 +361,7 @@
 				768305E41A4D02DE002C88B5 /* ViewController.m in Sources */,
 				768305E11A4D02DE002C88B5 /* AppDelegate.m in Sources */,
 				76F4E32F1A50F9E90044D8C8 /* PhotoCollectionHeaderView.m in Sources */,
+				76F4E3491A52831C0044D8C8 /* PhotoViewController.m in Sources */,
 				768305DE1A4D02DE002C88B5 /* main.m in Sources */,
 				768306041A4D05E4002C88B5 /* PhotoCollectionViewController.m in Sources */,
 			);

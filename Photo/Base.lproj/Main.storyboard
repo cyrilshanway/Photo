@@ -32,6 +32,9 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="Yuv-Tu-E75" kind="modal" identifier="showPhotoDetail" id="vkM-3Y-mC5"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderView" id="Kyo-AB-dn5" customClass="PhotoCollectionHeaderView">
@@ -66,12 +69,60 @@
                             <outlet property="delegate" destination="kBc-FU-LYt" id="Owg-ut-TIZ"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="PHOTO" id="sCe-DD-l7x"/>
+                    <navigationItem key="navigationItem" title="PHOTO" id="sCe-DD-l7x">
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="RUZ-8z-ELV">
+                            <connections>
+                                <action selector="shareButtonTapped:" destination="kBc-FU-LYt" id="QVt-13-kEO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="shareButton" destination="RUZ-8z-ELV" id="XWB-kH-daM"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Cy-ae-hgB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="720.5" y="288.5"/>
+        </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="L3Y-Sj-MWJ">
+            <objects>
+                <viewController id="Yuv-Tu-E75" customClass="PhotoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8bB-lu-dgs"/>
+                        <viewControllerLayoutGuide type="bottom" id="BxO-VU-QP0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bzR-Nc-0gE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9my-Za-n2K">
+                                <rect key="frame" x="0.0" y="66" width="375" height="200"/>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tqf-Yt-SJ7">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Detail" id="LXp-xs-UL1">
+                                        <barButtonItem key="rightBarButtonItem" title="Done" id="DzO-7B-bQ6">
+                                            <connections>
+                                                <action selector="close:" destination="Yuv-Tu-E75" id="jlp-9d-c8i"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="photoImageView" destination="9my-Za-n2K" id="Dxb-iX-KCG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0nb-N9-DeV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1186.5" y="287.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Azu-MD-En7">

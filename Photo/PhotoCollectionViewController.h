@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface PhotoCollectionViewController : UICollectionViewController
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
+- (IBAction)shareButtonTapped:(id)sender;
 
 @end

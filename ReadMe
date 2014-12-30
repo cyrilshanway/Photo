@@ -1,1 +1,4 @@
-UICollectionView
+1) UICollectionView
+2) Header + Footer
+3) choose 一般情況為單選->進入detail頁面
+          點選share->title改為upload，可複選，分享到FB 
